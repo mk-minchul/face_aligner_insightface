@@ -1,9 +1,9 @@
 
 
 # Face Alignment for InsightFace
+This code aligns images to the template as defined in insightface.
 
-## Installation
-
+This code relies on tensorflow v1.
 
 ## Example Dataset
 You can download and unzip tinyFace dataset from https://qmul-tinyface.github.io
