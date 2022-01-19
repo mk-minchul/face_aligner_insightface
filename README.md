@@ -18,6 +18,6 @@ python align_mtcnn.py --num_partition 1 \
                       --partition_idx 0 \
                       --preprocess_method pad_0.2 \
                       --failed_image_behavior pad_high \
-                      --image_root ./tinyface/Testing_Set \
+                      --image_root /data/data/faces/tinyface/Testing_Set \
                       --save_root ./aligned
 ```

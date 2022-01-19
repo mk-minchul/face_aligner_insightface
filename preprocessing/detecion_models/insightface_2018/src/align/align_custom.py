@@ -75,7 +75,11 @@ class Aligner():
         with tf.Graph().as_default():
             #gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_memory_fraction)
             #sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
-            config = tf.ConfigProto()
+            try:
+                config = tf.ConfigProto()
+            except:
+                # tf v2 
+                config = tf.compat.v1.ConfigProto()
             config.gpu_options.allow_growth = True
 
             sess = tf.Session(config=config)
