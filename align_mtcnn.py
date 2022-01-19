@@ -31,7 +31,7 @@ if __name__ == '__main__':
     parser.add_argument('--partition_idx', type=int, default=0)
     parser.add_argument('--preprocess_method', type=str, default='pad_0.2',
                                                          choices=("", 'pad_0.1', 'pad_0.2'))
-    parser.add_argument('--failed_image_behavior', type=str, default='pad_high',
+    parser.add_argument('--failed_image_behavior', type=str, default='center_crop',
                                                              choices=('identity', 'center_crop', 'pad_high'))
     parser.add_argument('--image_root', type=str, default='./tinyface/tinyface/Testing_Set')
     parser.add_argument('--save_root', type=str, default='./aligned')
@@ -40,6 +40,7 @@ if __name__ == '__main__':
     save_dir = os.path.join(args.save_root, "aligned_{}_{}".format(args.preprocess_method, args.failed_image_behavior))
 
     image_paths = os_utils.get_all_files(args.image_root, extension_list=['.jpg', '.png', '.jpeg'])
+    print('total images: {}'.format(len(image_paths)))
 
     aligner = align_custom.Aligner()
     all_img_index = range(len(image_paths))
